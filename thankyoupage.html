@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Successful | Frozen Food</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+
+  <style>
+    body { background-color: #FDF8F8; font-family: 'Poppins', sans-serif; margin: 0; }
+
+    nav {
+      position: fixed; background: #FF8EC7; width: 100%; top: 0; left: 0; z-index: 12;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav .menu {
+      max-width: 1250px; margin: auto; display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .menu .logo img { width: 160px; }
+    .menu ul { display: flex; align-items: center; list-style: none; gap: 10px; }
+    .menu ul li a {
+      text-decoration: none; color: #000; font-size: 18px; font-weight: 500;
+      padding: 10px 15px; border-radius: 5px; transition: 0.3s;
+    }
+    .menu ul li a:hover, .menu ul li a.active { background: #fff; }
+
+    /* THANK YOU BOX */
+    .thankyou-container {
+      max-width: 700px;
+      margin: 140px auto 80px;
+      background: #fff;
+      text-align: center;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .thankyou-container h1 {
+      font-size: 36px;
+      color: #FF8EC7;
+      margin-bottom: 10px;
+    }
+
+    .thankyou-container p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .thankyou-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background: #FF8EC7;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .thankyou-buttons a:hover {
+      background: #ff5fa8;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .footer-column h4 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: aliceblue;
+    }
+
+    .footer-column ul { list-style: none; padding: 0; margin: 0; }
+    .footer-column ul li { margin-bottom: 10px; }
+    .footer-column ul li a {
+      text-decoration: none; color: #fff; font-size: 14px;
+    }
+    .footer-column ul li a:hover { color: #b22222; }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="template1.html"><img src="image/Logo1.png" alt="FrozenFood"></a>
+      </div>
+      <ul>
+        <li><a href="template1.html"><strong>Home</strong></a></li>
+        <li><a href="userProduct.html"><strong>Product</strong></a></li>
+        <li><a href="tips&tricks.html"><strong>Tips & Tricks</strong></a></li>
+        <li><a href="aboutusUser.html"><strong>About Us</strong></a></li>
+        <li><a href="#"><strong>Contact Us</strong></a></li>
+        <li><a href="cart.html" title="View Cart"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="profile.php" title="Profile"><i class="fas fa-user-circle"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- THANK YOU MESSAGE -->
+  <div class="thankyou-container">
+    <h1>Thank You for Your Purchase! 🎉</h1>
+    <p>Your order has been successfully placed.<br>
+    We truly appreciate your support!</p>
+
+    <div class="thankyou-buttons">
+      <a href="template1.html">Back to Home</a>
+      <a href="profile.php">View My Orders</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Track My Order</h4>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">E-Invoice</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="#">Our History</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Our Food</h4>
+        <ul>
+          <li><a href="#">Halal Policy</a></li>
+          <li><a href="#">Tips and Trick</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Help & Support</h4>
+        <ul>
+          <li><a href="#">Share Your Feedback</a></li>
+          <li><a href="#">Customer Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p>&copy; 2025 FrozenFood. All Rights Reserved.</p>
+    <p>Follow us on</p>
+    <p>
+      <a href="https://www.tiktok.com/@frozenfood4life?_t=ZS-90Fv23X9ao0&_r=1" target="_blank">
+        <img src="image/tiktok.png" width="47" height="44" alt="TikTok"/>
+      </a>
+    </p>
+  </footer>
+
+</body>
+</html>

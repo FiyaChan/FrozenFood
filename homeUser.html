@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frozen Food</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+
+  <style>
+    body { background-color: #FDF8F8; font-family: 'Poppins', sans-serif; margin: 0; }
+	  
+	  .bgimage{
+		background-image: url(image/background1.png);
+        background-repeat: no-repeat;
+		background-size: cover;
+		padding-top:50px;
+		width:100%;
+		height:300px;
+	}
+	  .title {
+		font-family: Baskerville;
+		font-size: 16px;
+		color: #000000;
+	}
+	  .link{
+		color: #000000;
+		text-decoration: none;
+	}
+	.feedback-section{
+		background-color:#FDF8F8;
+		padding:40px 20px;
+		text-align:center;
+	}
+	.feedback-title{
+		font-family:Lucida, sans-serif;
+		font-size:24px;
+		font-weight:bold;
+		margin-bottom:30px;
+		color:#333;
+	}
+	.feedback-container{
+		display:flex;
+		justify-content:center;
+		gap:30px;
+		flex-wrap:wrap;
+	}
+	.feedback-card{
+		background:#fff;
+		border:1px solid #ddd;
+		border-radius:10px;
+		width:250px;
+		padding:20px;
+		box-shadow:0 4px 8px rgba(0,0,0,0.1);
+		text-align:center;
+	}
+	.feedback-card img{
+		width:70px;
+		height:70px;
+		border-radius:50%;
+		object-fit:cover;
+		margin-bottom:15px;
+	}
+	.feedback-card h4{
+		margin:10px 0 5px;
+		font-size:18px;
+		color:#222;
+	}
+	.feedback-card p{
+		font-size:14px;
+		color:#555;
+		font-style:italic;
+	}
+
+
+    nav {
+      position: fixed; background: #FF8EC7; width: 100%; top: 0; left: 0; z-index: 12;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav .menu {
+      max-width: 1250px; margin: auto; display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .menu .logo img { width: 160px; }
+    .menu ul { display: flex; align-items: center; list-style: none; gap: 10px; }
+    .menu ul li a {
+      text-decoration: none; color: #000; font-size: 18px; font-weight: 500;
+      padding: 10px 15px; border-radius: 5px; transition: 0.3s;
+    }
+    .menu ul li a:hover, .menu ul li a.active { background: #fff; }
+
+    .cart-container {
+      max-width: 900px; margin: 120px auto 50px; background: #fff; padding: 30px;
+      border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .cart-container h2 { text-align: center; margin-bottom: 30px; color: #FF8EC7; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table th, table td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    table th { background-color: #FFB6D1; color: #000; }
+
+    .quantity input {
+      width: 50px;
+      text-align: center;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .remove-btn {
+      background: #FF4C4C;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .remove-btn:hover { background: #b22222; }
+
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .checkout-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 15px 30px;
+      background: #FF8EC7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .checkout-btn:hover { background: #ff5fa8; }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 50px;
+    }
+    .footer-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    .footer-column h4 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: aliceblue;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+    }
+    .footer-column ul li a:hover {
+      color: #b22222;
+    }
+  </style>z
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="homeUser.html"><img src="image/Logo1.png" alt="FrozenFood"></a>
+      </div>
+      <ul>
+        <li><a href="homeUser.html" class="active"><strong>Home</strong></a></li>
+        <li><a href="userProduct2.html"><strong>Product</strong></a></li>
+        <li><a href="tips&tricks.html"><strong>Tips & Tricks</strong></a></li>
+        <li><a href="aboutusUser.html"><strong>About Us</strong></a></li>
+        <li><a href="cartUser.html"  title="View Cart"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="profile.html" title="Profile"><i class="fas fa-user-circle"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p align="center"><font face="Lucida" color="#000000" size="+1"><em>Quick, easy, and always delicious!  Perfect for your busy days.</em></font></p>
+  	<div class="bgimage">
+		<p><h4><font face="Lucida" color="#FCFCFC" size="+2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM FREEZER TO FEAST IN MINUTES</font></h4></p>
+		<p><font face="Lucida" color="#FCFCFC" size="+2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Craving for something traditional?</font></p>
+		<p><font face="Lucida" color="#FCFCFC" size="+2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stay far from your hometown?</font></p>
+	</div>
+	<!-- Customer Feedback Section -->
+	<div class="feedback-section">
+		<div class="feedback-title">What Our Customers Say</div>
+		<div class="feedback-container">
+			<div class="feedback-card">
+				<h4>Sarah Lee</h4>
+				<p>"The frozen curry puff tastes just like home. Super convenient and yummy!"</p>
+			</div>
+			<div class="feedback-card">
+				<h4>Adam Wong</h4>
+				<p>"Fast delivery and the food quality is amazing. My kids love it!"</p>
+			</div>
+			<div class="feedback-card">
+				<h4>Noraini</h4>
+				<p>"Perfect solution for busy days. Quick to prepare and delicious every time."</p>
+			</div>
+		</div>
+	</div>
+
+  <!-- ===== FOOTER ===== -->
+    <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Track My Order</h4>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">E-Invoice</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="#">Our History</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Our Food</h4>
+        <ul>
+          <li><a href="#">Halal Policy</a></li>
+          <li><a href="#">Tips and Trick</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Help & Support</h4>
+        <ul>
+          <li><a href="#">Share Your Feedback</a></li>
+          <li><a href="#">Customer Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <p>&copy; 2025 FrozenFood. All Rights Reserved.</p>
+    <p>Follow us on</p>
+    <p>
+      <a href="https://www.tiktok.com/@frozenfood4life?_t=ZS-90Fv23X9ao0&_r=1" target="_blank">
+        <img src="image/tiktok.png" width="47" height="44" alt="TikTok"/>
+      </a>
+    </p>
+  </footer>
+
+</body>
+</html>

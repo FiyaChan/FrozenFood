@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tambah Produk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #FFF4F9;
+      color: #333;
+      display: flex;
+      flex-direction: column; /* <— ubah ke column supaya nav di atas, form di bawah */
+      min-height: 100vh;
+    }
+
+    /* NAVBAR */
+    .admin-nav {
+      background: #FF8EC7;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .admin-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .admin-nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .admin-nav ul li a.active,
+    .admin-nav ul li a:hover {
+      color: white;
+    }
+
+    /* FORM CONTAINER */
+    .form-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    form {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 340px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #FF8EC7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    button:hover {
+      background-color: #EC51DD;
+    }
+
+    footer {
+      text-align: center;
+      background: #FFC2E0;
+      color: #000;
+      padding: 15px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="admin-nav">
+    <div class="logo"><img src="image/Logo1.png" width="150"></div>
+    <ul>
+      <li><a href="adminHome.html"><i class="fas fa-home"></i> Dashboard</a></li>
+      <li><a href="ManageProduct.html" class="active"><i class="fas fa-box"></i> Products</a></li>
+      <li><a href="manageOrders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li><a href="manageUsers.html"><i class="fas fa-users"></i> Users</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a></li>
+      <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="form-wrapper">
+    <form action="saveProduct.php" method="POST" enctype="multipart/form-data">
+      <h2>Add Product</h2>
+      
+      <label for="name">Product Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" required>
+
+      <label for="price">Price (RM)</label>
+      <input type="number" step="0.01" id="price" name="price" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="3"></textarea>
+
+      <label for="image">Product Photo</label>
+      <input type="file" id="image" name="image">
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 FrozenFood Admin Panel</p>
+  </footer>
+
+</body>
+</html>

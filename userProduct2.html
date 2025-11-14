@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FrozenFood - Products</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #FDF8F8;
+  color: #333;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  background: #FF8EC7;
+  width: 100%;
+  top: 0;
+  z-index: 12;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav .menu {
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.menu .logo img {
+  width: 180px;
+  height: auto;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu ul li {
+  list-style: none;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+  background: #fff;
+  color: black;
+}
+
+/* ===== HEADER / TITLE ===== */
+header1 {
+  display: block;
+  text-align: center;
+  padding: 130px 20px 40px;
+  background: #fff5f9;
+  border-bottom: 3px solid #FF8EC7;
+}
+
+header1 h1 {
+  font-size: 36px;
+  color: #b30000;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+header1 p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* ===== PRODUCT SECTION ===== */
+.product-section {
+  padding: 40px 20px 60px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product-section h2 {
+  font-size: 24px;
+  color: #b30000;
+  border-left: 6px solid #FF8EC7;
+  padding-left: 10px;
+  margin: 50px 0 25px;
+  font-weight: 600;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.product-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.product-item img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.product-item p {
+  font-weight: 500;
+  color: #333;
+  font-size: 16px;
+}
+
+/* ===== MODAL POPUP ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 400px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.8);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.variant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.variant input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+}
+
+.add-to-cart {
+  background: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-to-cart:hover {
+  background: #218838;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: aliceblue;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+  color: #b22222;
+}
+</style>
+</head>
+
+<body>
+<!-- NAVIGATION -->
+<nav>
+  <div class="menu">
+    <div class="logo">
+      <a href="homeUser.html"><img src="image/Logo1.png" alt="FrozenFood"></a>
+    </div>
+    <ul>
+      <li><a href="homeUser.html"><strong>Home</strong></a></li>
+      <li><a href="userProduct2.html" class="active"><strong>Product</strong></a></li>
+      <li><a href="tips&tricks.html"><strong>Tips & Tricks</strong></a></li>
+      <li><a href="aboutus.html"><strong>About Us</strong></a></li>
+      <li><a href="cartUser.html" title="View Cart"><i class="fas fa-shopping-cart"></i></a></li>
+      <li><a href="profile.html" title="Profile"><i class="fas fa-user-circle"></i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HEADER / TITLE -->
+<header1>
+  <h1>Our Products</h1>
+  <p>Delicious frozen food for every occasion</p>
+</header1>
+
+<!-- PRODUCT SECTION -->
+<div class="product-section">
+  <h2>Fried & Deep Fried</h2>
+  <div class="product-list">
+    <div class="product-item" onClick="openModal('Karipap', 'karipap.png', ['Karipap Ayam', 'Karipap Bilis'])">
+      <img src="image/karipapnbg.png" alt="Karipap">
+      <p>Karipap</p>
+    </div>
+    <div class="product-item" onClick="openModal('Donut', 'donut.png', ['Donut Gula', 'Donut Susu'])">
+      <img src="image/donutnbg.png" alt="Donut">
+      <p>Donut</p>
+    </div>
+    <div class="product-item" onClick="openModal('Kuih Bijan', 'kuihbijan.png', ['Kuih Bijan'])">
+      <img src="image/kuihbijan.png" alt="Kuih Bijan">
+      <p>Kuih Bijan</p>
+    </div>
+  </div>
+
+  <h2>Steamed</h2>
+  <div class="product-list">
+    <div class="product-item" onClick="openModal('Pau', 'pau.jpg', ['Pau Ayam', 'Pau Bilis', 'Pau Kacang Merah'])">
+      <img src="image/paunbg.png" alt="Pau">
+      <p>Pau</p>
+    </div>
+    <div class="product-item" onClick="openModal('Onde-onde', 'ondeondenbg.png', ['Onde-Onde'])">
+      <img src="image/ondeondenbg.png" alt="Onde-Onde">
+      <p>Kuih Onde-Onde</p>
+    </div>
+  </div>
+
+  <h2>Baked</h2>
+  <div class="product-list">
+    <div class="product-item" onClick="openModal('Kek Bakar', 'kekbakar.png', ['Kek Bakar'])">
+      <img src="image/kekbakarnbg.png" alt="Kek Bakar">
+      <p>Kek Bakar</p>
+    </div>
+    <div class="product-item" onClick="openModal('Pulut Panggang', 'pulutpanggangnbg.png', ['Pulut Panggang'])">
+      <img src="image/pulutpanggangnbg.png" alt="Pulut Panggang">
+      <p>Pulut Panggang</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL POPUP -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="" style="width:100%; border-radius:10px;">
+    <h2 id="modalName"></h2>
+    <div id="variantContainer"></div>
+    <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+  </div>
+</div>
+
+<script>
+let selectedProduct = {};
+
+function openModal(name, image, variants) {
+  selectedProduct = { name, image, variants };
+  document.getElementById("modalName").innerText = name;
+  document.getElementById("modalImage").src = "image/" + image;
+
+  const container = document.getElementById("variantContainer");
+  container.innerHTML = '';
+
+  variants.forEach(v => {
+    container.innerHTML += `
+      <div class="variant">
+        <span>${v}</span>
+        <input type="number" id="qty-${v}" value="1" min="1">
+      </div>
+    `;
+  });
+
+  document.getElementById("productModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("productModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById("productModal");
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+
+function addToCart() {
+  let cart = [];
+  selectedProduct.variants.forEach(v => {
+    const qty = document.getElementById(`qty-${v}`).value;
+    if (qty > 0) {
+      cart.push({ name: selectedProduct.name, variant: v, quantity: qty });
+    }
+  });
+  console.log("Added to cart:", cart);
+  alert("Item(s) added to cart!");
+  closeModal();
+}
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>Track My Order</h4>
+      <h4>Services</h4>
+      <ul><li><a href="#">E-Invoice</a></li></ul>
+    </div>
+    <div class="footer-column">
+      <h4>About Us</h4>
+      <ul><li><a href="#">Our History</a></li></ul>
+    </div>
+    <div class="footer-column">
+      <h4>Our Food</h4>
+      <ul>
+        <li><a href="#">Halal Policy</a></li>
+        <li><a href="#">Tips and Trick</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Help & Support</h4>
+      <ul>
+        <li><a href="#">Share Your Feedback</a></li>
+        <li><a href="#">Customer Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <p>&copy; 2025 FrozenFood. All Rights Reserved.</p>
+  <p>Follow us on</p>
+  <p>
+    <a href="https://www.tiktok.com/@frozenfood4life?_t=ZS-90Fv23X9ao0&_r=1" target="_blank">
+      <img src="image/tiktok.png" width="47" height="44" alt="TikTok"/>
+    </a>
+  </p>
+</footer>
+</body>
+</html>

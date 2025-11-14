@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>FrozenFood</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<style>
+    body {
+        font-family: Poppins;
+        margin: 0;
+        background-color: #fdfdfd;
+        color: #333;
+    }
+	
+	.title {
+		font-family: Baskerville;
+		font-size: 16px;
+		color: #000000;
+	}
+	
+	.link{
+		color: #000000;
+		text-decoration: none;
+	}
+
+    header1 {
+        <!--background-color: #F5DBDC;-->
+        padding: 15px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 28px;
+        color: #222;
+    }
+
+    .product-section {
+        padding: 40px 20px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .product-section h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #b30000; /* merah ala KFC */
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+    }
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .product-item {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        width: 180px;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+    }
+
+    .product-item:hover {
+        transform: scale(1.05);
+    }
+
+    .product-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        border-radius: 8px;
+    }
+	
+	nav {
+      position: fixed; background: #FF8EC7; width: 100%; top: 0; left: 0; z-index: 12;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav .menu {
+      max-width: 1250px; margin: auto; display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .menu .logo img { width: 160px; }
+    .menu ul { display: flex; align-items: center; list-style: none; gap: 10px; }
+    .menu ul li a {
+      text-decoration: none; color: #000; font-size: 18px; font-weight: 500;
+      padding: 10px 15px; border-radius: 5px; transition: 0.3s;
+    }
+    .menu ul li a:hover { background: #fff; }
+
+    .profile-container {
+      max-width: 600px; background: #fff; margin: 120px auto; padding: 30px;
+      border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    footer {
+	  background: #222;
+	  color: white;
+	  text-align: center;
+	  padding: 25px 15px;
+	  margin-top: 50px;
+	}
+	.footer-container {
+	  display: flex;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  gap: 50px;
+	  margin-bottom: 30px;
+	  text-align: left;
+	}
+	.footer-column h4 {
+	  font-size: 16px;
+	  font-weight: bold;
+	  margin-bottom: 15px;
+	  color: aliceblue;
+	}
+	.footer-column ul {
+	  list-style: none;
+	  padding: 0;
+	  margin: 0;
+	}
+	.footer-column ul li {
+	  margin-bottom: 10px;
+	}
+	.footer-column ul li a {
+	  text-decoration: none;
+	  color: #fff;
+	  font-size: 14px;
+	}
+	.footer-column ul li a:hover {
+	  color: #b22222;
+	}
+	
+	:root{
+		--accent:#7B3F00;
+		--muted:#6B7280;
+		--bg:#FAFAFB;
+		--card:#FFFFFF
+	}
+	
+	*{box-sizing:border-box}
+	
+	body{
+		font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+		font-size:16px;
+		line-height:1.5;
+		margin:0;background:linear-gradient(180deg,#fbfbfd,#f6f7fb);
+		color:#111
+	}
+    .container{
+		max-width:980px;
+		margin:36px auto;
+		padding:24px
+	}
+	
+    header{
+		display:flex;
+		gap:16px;
+		align-items:center
+	}
+	
+    .logo{
+		width:64px;
+		height:64px;
+		border-radius:12px;
+		background:linear-gradient(135deg,var(--accent),#FB923C);
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		color:white;
+		font-weight:700
+	}
+    h1{
+		font-size:1.6rem;
+		margin:0
+	}
+    p.lead{
+		color:var(--muted);
+		margin:6px 0 18px
+	}
+    .grid{
+		display:grid;
+		grid-template-columns:repeat(3,1fr);
+		gap:14px;
+		margin-top:18px
+	}
+    .card{
+		background:var(--card);
+		padding:14px;
+		border-radius:12px;
+		box-shadow:0 6px 18px rgba(15,23,42,0.06);
+		border:1px solid rgba(15,23,42,0.03)
+	}
+    .card 
+	h3{
+		margin:0 0 8px;
+		font-size:1.05rem
+	}
+    ul{
+		margin:10px 0 0;
+		padding-left:18px
+	}
+    li{
+		margin-bottom:8px;
+		color:#111
+	}
+    .muted{
+		color:var(--muted);
+		font-size:0.95rem
+	}
+    .actions{
+		display:flex;
+		gap:10px;
+		margin-top:18px
+	}
+    .btn{
+		background:var(--accent);
+		color:white;
+		padding:8px 12px;
+		border-radius:10px;
+		border:0;
+		cursor:pointer;
+		font-weight:600
+	}
+    .btn.ghost{
+		background:transparent;
+		color:var(--accent);
+		border:1px solid rgba(249,115,22,0.12)
+	}
+    .small{
+		font-size:0.9rem;
+		padding:6px 10px
+	}
+    .section{
+		margin-top:22px
+	}
+    pre{
+		background:#0f172a;
+		color:#fff;
+		padding:12px;
+		border-radius:8px;
+		overflow:auto
+	}
+    footer{
+		margin-top:28px;
+		color:var(--muted);
+		font-size:0.95rem
+	}
+    @media(max-width:900px){
+		.grid{
+			grid-template-columns:1fr;
+		}
+	}
+</style>
+</head>
+<body>
+<header>
+    <nav>
+    <div class="menu">
+      <div>
+        <a href="homeUser.html"><img src="image/Logo1.png" alt="FrozenFood" width="173" height="91"></a>
+      </div>
+      <ul>
+        <li><a href="homeUser.html"><strong>Home</strong></a></li>
+        <li><a href="userProduct2.html"><strong>Product</strong></a></li>
+        <li><a href="tips&tricks.html" class="active"><strong>Tips & Tricks</strong></a></li>
+        <li><a href="aboutusUser.html"><strong>About Us</strong></a></li>
+        <li><a href="cartUser.html" title="View Cart"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="profile.html" title="Profile"><i class="fas fa-user-circle"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+</body> 
+<body>
+  <div class="container">
+    <header>
+  
+      <div>
+		  <h1>&nbsp;</h1>
+		  <h1>&nbsp;</h1>
+        <h1>Tips & Tricks: Cooking All Types of <span style="color:var(--accent)">Frozen Food</span></h1>
+        <p class="lead">A quick reference guide for three main cooking methods — <strong>Fried / Deep-fried</strong>, <strong>Steamed</strong>, and <strong>Baked</strong>.</p>
+      </div>
+    </header>
+
+    <div class="actions">
+      <button class="btn" onclick="window.print()">Print</button>
+    </div>
+
+    <section class="section grid">
+      <article class="card">
+        <h3>Fried & Deep-fried</h3>
+        <p class="muted">Crispy outside, evenly cooked inside. Examples: nuggets, fries, spring rolls.</p>
+        <ul>
+          <li><strong>Do not defrost</strong> — fry straight from frozen for best crispiness.</li>
+          <li>Oil temperature: 170–180°C (340–355°F). Fry in small batches to keep oil hot.</li>
+          <li>Drain on a rack, not paper towels, to prevent sogginess.</li>
+          <li>Extra crisp trick: dust lightly with cornstarch or breadcrumbs before frying.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Steamed</h3>
+        <p class="muted">Soft and juicy results. Examples: dim sum, buns, dumplings, fish cakes.</p>
+        <ul>
+          <li>Let thaw for about 5–10 minutes before steaming (not fully defrosted).</li>
+          <li>Use boiling water before placing food; wrap the steamer lid with a cloth to avoid water dripping.</li>
+          <li>Use banana leaf or baking paper to prevent sticking.</li>
+          <li>Approx times: dumplings 5–7 min, buns 10–15 min, fishcakes 8–10 min.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Baked (Oven)</h3>
+        <p class="muted">Golden crisp outside, moist inside. Examples: pastries, mini pizzas, frozen lasagna, wedges.</p>
+        <ul>
+          <li>Preheat oven 5–10 minutes. Use a rack or perforated tray for better air flow.</li>
+          <li>Brush a bit of oil or butter on pastries or breaded foods for a golden finish.</li>
+          <li>Cover cheese-topped dishes with foil for the first half to avoid burning.</li>
+          <li>For an “air fryer” effect: 200°C (390°F), fan mode, 12–15 min (approx.).</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="extra" class="section" style="display:none">
+      <div class="card">
+        <h3>General Tips</h3>
+        <ul>
+          <li><strong>Preheat</strong> your cooking tool (air fryer, oven, pan) for 3–5 minutes before cooking.</li>
+          <li>Do not overcrowd — give enough space for heat to circulate evenly.</li>
+          <li>Shake halfway if using an air fryer for even browning.</li>
+          <li>Store in airtight ziplock bags, squeeze out air to avoid frost buildup.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h3>Quick Reference (Time & Temperature — Approx.)</h3>
+        <pre>// Fried: 170–180°C (340–355°F), 5–12 min depending on size
+// Steamed: dumpling 5–7 min | bun 10–15 min
+// Baked: 180–200°C (355–390°F), 10–20 min depending on item</pre>
+      </div>
+    </section>
+
+
+</div>
+ <script>
+		fetch('session.php')
+		  .then(response => response.text())
+		  .then(data => {
+			document.getElementById("userInfo").innerHTML = data;
+		  });
+	</script>
+</body>
+<footer>
+	<div class="footer-container">
+		<div class="footer-column">
+			<h4>Track My Order</h4>
+			<h4>Services</h4>
+			<ul>
+				<li><a href="#">Catering</a></li>
+				<li><a href="#">E-Invoice</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-column">
+			<h4>About Us</h4>
+			<ul>
+				<li><a href="#">Our History</a></li>
+				<li><a href="#">Location</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-column">
+			<h4>Our Food</h4>
+			<ul>
+				<li><a href="#">Halal Policy</a></li>
+				<li><a href="#">Tips and Trick</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-column">
+			<h4>Help & Support</h4>
+			<ul>
+				<li><a href="#">Share Your Feedback</a></li>
+				<li><a href="#">Customer Service</a></li>
+				<li><a href="#">Scam Alert</a></li>
+				<li><a href="#">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<p>&copy; 2025 FrozenFood. All Rights Reserved.</p>
+	<p>Follow us on</p>
+	<p>
+		<a href="https://www.tiktok.com/@frozenfood4life?_t=ZS-90Fv23X9ao0&_r=1" target="_blank"><img src="image/tiktok.png" width="47" height="44" alt=""/></a>&nbsp;
+	</p>
+</footer>
+</html>

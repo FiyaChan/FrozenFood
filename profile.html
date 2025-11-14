@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+
+  <style>
+    body { background-color: #FDF8F8; font-family: 'Poppins', sans-serif; margin: 0; }
+
+    nav {
+      position: fixed; background: #FF8EC7; width: 100%; top: 0; left: 0; z-index: 12;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav .menu {
+      max-width: 1250px; margin: auto; display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .menu .logo img { width: 160px; }
+    .menu ul { display: flex; align-items: center; list-style: none; gap: 10px; }
+    .menu ul li a {
+      text-decoration: none; color: #000; font-size: 18px; font-weight: 500;
+      padding: 10px 15px; border-radius: 5px; transition: 0.3s;
+    }
+    .menu ul li a:hover { background: #fff; }
+
+    .profile-container {
+      max-width: 600px; background: #fff; margin: 120px auto; padding: 30px;
+      border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 { text-align: center; margin-bottom: 20px; }
+
+    form label {
+      display: block; margin-top: 15px; font-weight: 500;
+    }
+
+    form input {
+      width: 100%; padding: 10px; border-radius: 5px;
+      border: 1px solid #ccc; margin-top: 5px;
+    }
+
+    button {
+      display: block; margin: 20px auto 0;
+      background: #FF8EC7; border: none; padding: 10px 25px;
+      border-radius: 5px; color: #fff; font-weight: bold; cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover { background: #ff6cab; }
+
+    footer {
+	  background: #222;
+	  color: white;
+	  text-align: center;
+	  padding: 25px 15px;
+	  margin-top: 50px;
+	}
+	.footer-container {
+	  display: flex;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  gap: 50px;
+	  margin-bottom: 30px;
+	  text-align: left;
+	}
+	.footer-column h4 {
+	  font-size: 16px;
+	  font-weight: bold;
+	  margin-bottom: 15px;
+	  color: aliceblue;
+	}
+	.footer-column ul {
+	  list-style: none;
+	  padding: 0;
+	  margin: 0;
+	}
+	.footer-column ul li {
+	  margin-bottom: 10px;
+	}
+	.footer-column ul li a {
+	  text-decoration: none;
+	  color: #fff;
+	  font-size: 14px;
+	}
+.footer-column ul li a:hover {
+  color: #b22222;
+}
+  </style>
+</head>
+
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="homeUser.html"><img src="image/Logo1.png" alt="FrozenFood"></a>
+      </div>
+      <ul>
+        <li><a href="homeUser.html"><strong>Home</strong></a></li>
+        <li><a href="userProduct2.html"><strong>Product</strong></a></li>
+        <li><a href="tips&tricks.html"><strong>Tips & Tricks</strong></a></li>
+        <li><a href="aboutusUser.html"><strong>About Us</strong></a></li>
+        <li><a href="cartUser.html" title="View Cart"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="profile.html" class="active" title="Profile"><i class="fas fa-user-circle"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== PROFILE SECTION ===== -->
+  <div class="profile-container">
+    <h2>My Profile</h2>
+
+    <form action="update_profile.php" method="POST">
+      <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+
+      <label>Full Name:</label>
+      <input type="text" name="name" value="<?php echo htmlspecialchars($user['name']); ?>" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
+
+      <label>Phone Number:</label>
+      <input type="text" name="phone" value="<?php echo htmlspecialchars($user['phone'] ?? ''); ?>">
+
+      <label>Address:</label>
+      <input type="text" name="address" value="<?php echo htmlspecialchars($user['address'] ?? ''); ?>">
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>Track My Order</h4>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">E-Invoice</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="#">Our History</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Our Food</h4>
+      <ul>
+        <li><a href="#">Halal Policy</a></li>
+        <li><a href="#">Tips and Trick</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Help & Support</h4>
+      <ul>
+        <li><a href="#">Share Your Feedback</a></li>
+        <li><a href="#">Customer Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <p>&copy; 2025 FrozenFood. All Rights Reserved.</p>
+  <p>Follow us on</p>
+  <p>
+    <a href="https://www.tiktok.com/@frozenfood4life?_t=ZS-90Fv23X9ao0&_r=1" target="_blank">
+      <img src="image/tiktok.png" width="47" height="44" alt="TikTok"/>
+    </a>
+  </p>
+  </footer>
+</body>
+</html>
